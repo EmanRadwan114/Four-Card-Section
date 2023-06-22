@@ -1,0 +1,191 @@
+/* start of General Styling */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --red:hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --darkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --lightGray: hsl(0, 0%, 98%);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--lightGray);
+}
+/* end of general styling */
+
+/* start of common styling */
+.heading .sub-heading, .heading .sec-title, .card-heading{
+    color: var(--darkBlue);
+}
+.heading-margin{
+    margin-bottom: 10px;
+}
+
+.sec-desc, .card-text{
+    color: var(--grayishBlue);
+    line-height: 1.7;
+}
+
+.content-margin{
+    margin-bottom: 20px;
+}
+
+.card{
+    padding: 20px;
+    box-shadow: 0 8px 13px 2px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 6px;
+    border-top: solid 5px transparent;
+}
+/* end of common styling */
+
+/* start of four card section */
+.four-sec {  
+    padding: 30px 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 0fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 0fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 0.25fr 1fr;
+        grid-template-rows: 0.25fr 1fr;
+    row-gap: 50px;
+    grid-template-areas:
+      ". heading heading heading heading heading heading heading heading heading ."
+      ". four-card four-card four-card four-card four-card four-card four-card four-card four-card ."
+      ". four-card four-card four-card four-card four-card four-card four-card four-card four-card .";
+  }
+  
+  .heading { 
+    grid-area: heading;
+    text-align: center;
+}
+  
+  .four-card {  
+    display: -ms-grid;  
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px 30px;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    grid-template-areas:
+      ". . . . card-one card-one card-one card-one . . . ."
+      "card-two card-two card-two card-two card-one card-one card-one card-one card-four card-four card-four card-four"
+      "card-two card-two card-two card-two card-three card-three card-three card-three card-four card-four card-four card-four"
+      ". . . . card-three card-three card-three card-three . . . ."
+      ". . . . . . . . . . . ."
+      ". . . . . . . . . . . .";
+    grid-area: four-card;
+  }
+  
+  .card-one { 
+    grid-area: card-one;
+    border-color: var(--red);
+
+}
+  
+  .card-two { 
+    grid-area: card-two; 
+    border-color: var(--cyan);
+}
+  
+  .card-three { 
+    grid-area: card-three;
+    border-color: var(--orange);
+}
+  
+  .card-four { 
+    grid-area: card-four;
+    border-color: var(--blue);
+}
+
+.heading .sec-title{
+    font-size: calc(1.2rem + 1vw);
+}
+
+.heading .sub-heading{
+    font-size: calc(1.2rem + 1vw);
+    font-weight: 100;
+}
+
+.sec-desc{
+    font-size: 16px;
+}
+
+.card-heading{
+    font-size: calc(1rem + 0.25vw);
+    text-transform: capitalize;
+}
+
+.card-img{
+    text-align: end;
+}
+
+/* start of media query of four card section */
+@media screen and (max-width:991px){
+    .four-sec { 
+        grid-template-areas:
+          ". heading heading heading heading heading heading heading heading heading ."
+          ". four-card four-card four-card four-card four-card four-card four-card four-card four-card ."
+          ". four-card four-card four-card four-card four-card four-card four-card four-card four-card ."
+          ". four-card four-card four-card four-card four-card four-card four-card four-card four-card ."
+          ". four-card four-card four-card four-card four-card four-card four-card four-card four-sec .";
+      }
+            
+      .four-card {  
+        -ms-grid-columns: 1fr 1fr 1fr 1fr;  
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+          "card-two card-two card-one card-one"
+          "card-two card-two card-one card-one"
+          "card-three card-three card-four card-four"
+          "card-three card-three card-four card-four";
+      }
+        
+}
+
+@media screen and (max-width:566px) {
+    .sec-desc br{
+        display: none;
+    }
+    .four-sec {
+        -ms-grid-rows: 0.25fr 1.5fr;
+            grid-template-rows: 0.25fr 1.5fr;
+        grid-template-areas:
+          ". heading heading heading heading heading heading heading heading heading ."
+          ". four-card four-card four-card four-card four-card four-card four-card four-card four-card .";
+      }
+            
+      .four-card {
+        -ms-grid-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+          "card-two card-two card-two"
+          "card-two card-two card-two"
+          "card-one card-one card-one"
+          "card-one card-one card-one"
+          "card-three card-three card-three"
+          "card-three card-three card-three"
+          "card-four card-four card-four"
+          "card-four card-four card-four";
+      }    
+
+    
+}
+	
+/* end of media query of four card section */
+/* end of four card section */
+
